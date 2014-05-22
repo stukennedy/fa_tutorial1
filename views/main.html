@@ -1,0 +1,56 @@
+<table>
+    <tr><td>Text:</td><td><input ng-model="text"/></td></tr>
+    <tr><td>No. boxes:</td><td><input type="number" ng-model="number"/></td></tr>
+    <tr><td>X-Offset:</td><td><input ng-model="offset"/></td></tr>
+</table>
+<fa-app>
+    <fa-view
+             ng-repeat="box in boxes"
+             fa-size="[250, 50]">
+        <fa-modifier fa-translate="[offset, 55*$index, 0]">
+            <fa-modifier id="{{'box-' + $index}}">
+                <fa-surface
+                            fa-background-color="box.bg_color"
+                            fa-color="box.color"
+                            fa-size="[250, 50]">
+                    <table>
+                        <tr>
+                            <td>
+                                <input style="width: 50px" ng-model="box.bg_color"/><br>
+                                <input style="width: 50px" ng-model="box.color"/>
+                            </td>
+                            <td align="center" fa-click="click($index)">
+                                {{text}}
+                            </td>
+                        </tr>
+                    </table>
+                </fa-surface>
+            </fa-modifier>
+        </fa-modifier>
+
+        <fa-animation id="{{'shake-animation-' + $index}}" duration="750">
+            <animate  targetModSelector="{{'#box-' + $index}}"
+                     field="translate"
+                     startValue="[0,0,0]"
+                     endValue="[-40,0,0]"
+                     curve="linear"
+                     timelineLowerBound="0"
+                     timelineUpperBound=".075"/>
+            <animate  targetModSelector="{{'#box-' + $index}}"
+                     field="translate"
+                     startValue="[0,0,0]"
+                     endValue="[30,0,0]"
+                     curve="linear"
+                     timelineLowerBound=".075"
+                     timelineUpperBound=".15"/>
+            <animate  targetModSelector="{{'#box-' + $index}}"
+                     field="translate"
+                     startValue="[40,0,0]"
+                     endValue="[0,0,0]"
+                     curve="outElastic"
+                     timelineLowerBound=".15"
+                     timelineUpperBound="1"/>
+        </fa-animation>
+
+    </fa-view>
+</fa-app>
