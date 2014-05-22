@@ -1,4 +1,4 @@
-# Famo.us-Angular beginner tutorial
+# Famo.us-Angular beginner tutorial 
 
 
 There has been much excitement of late concerning the new [Famo.us](http://famo.us) Javascript framework for developing graphically rich web-apps, based on a physics rendering engine.
@@ -19,8 +19,17 @@ Some of this will be replicated from the https://github.com/Famous/famous-angula
 A simple color-scheme tester. We want to be able to create a set of boxes on the page and set each of their background and text colors as well as edit the text, all in real-time. Clicking on a box should perform a wiggle animation on that box.
 
 ####Create your app:
-* Run `bower install famous-angular`.. this should download some libraries into `bower_components`
-* Create an index.html which looks like this
+Install bower libraries:- 
+```bash
+bower install famous-angular
+bower install angular-ui-router
+bower install underscore
+bower install jquery
+``` 
+this should download the dependencies into `bower_components`. 
+
+Create an index.html which looks like this
+
 ```html
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="integrationApp">
