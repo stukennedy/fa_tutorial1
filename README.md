@@ -50,8 +50,7 @@ Create an index.html which looks like this
             //set requirejs's base to where the famous lib folder lives
             require.config({baseUrl: 'bower_components'});
         </script>
-        <script src="bower_components/famous-angular/dist/famous-angular.js"></script>
-
+        
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
     </body>
