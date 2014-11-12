@@ -1,4 +1,4 @@
-# Famo.us-Angular beginner tutorial 
+# Famo.us-Angular beginner tutorial
 
 
 There has been much excitement of late concerning the new [Famo.us](http://famo.us) Javascript framework for developing graphically rich web-apps, based on a physics rendering engine.
@@ -19,12 +19,10 @@ Some of this will be replicated from the https://github.com/Famous/famous-angula
 A simple color-scheme tester. We want to be able to create a set of boxes on the page and set each of their background and text colors as well as edit the text, all in real-time. Clicking on a box should perform a wiggle animation on that box.
 
 ####Create your app:
-Install bower libraries:- 
+Install bower libraries:-
 ```bash
 bower install famous-angular
 bower install angular-ui-router
-bower install underscore
-bower install jquery
 ``` 
 this should download the dependencies into `bower_components`. 
 
@@ -35,22 +33,20 @@ Create an index.html which looks like this
 <html ng-app="integrationApp">
     <head>
         <title></title>
-        <link rel="stylesheet" href="bower_components/famous-angular/dist/famous-angular.css"/>
+        <link rel="stylesheet" href="bower_components/famous-angular/dist/famous-angular.min.css"/>
     </head>
     <body>
         <ui-view></ui-view>
 
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!-- Angular libs -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/requirejs/require.js"></script>
-        <script src="bower_components/famous-angular/dist/famous-angular.js"></script>
-        <script>
-            //set requirejs's base to where the famous lib folder lives
-            require.config({baseUrl: 'bower_components'});
-        </script>
-        
+
+        <!-- Famous libs -->
+        <script src="bower_components/famous/dist/famous-global.min.js"></script>
+        <script src="bower_components/famous-angular/dist/famous-angular.min.js"></script>
+
+        <!-- Application -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
     </body>
@@ -150,7 +146,7 @@ We now need our controller to set up our variables and handle the click event th
 ----
 ####Create the Angular Controller:
 
-We now create a file `scripts/controllers.main.js` where we will declare our Main controller and handle the two-way binding for the template
+We now create a file `scripts/controllers/main.js` where we will declare our Main controller and handle the two-way binding for the template
 
 ```js
 angular.module('integrationApp')
